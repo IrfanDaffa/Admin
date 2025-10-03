@@ -79,7 +79,7 @@ const Dashboard = () => {
                 <div className="flex items-start justify-between">
                 <div className="flex-1 max-w-2xl">
                     <h1 className="text-2xl md:text-3xl font-bold mb-2">Hello, Irfan Daffa'</h1>
-                    <p className="text-slate-200 text-base md:text-lg mb-4">Selamat datang kembali! Ayo mulai dari akhir kali.</p>
+                    <p className="text-slate-200 text-base md:text-lg mb-4">Selamat datang kembali! Ayo mulai.</p>
                     <button className="bg-white text-slate-800 px-6 py-2 rounded-lg font-semibold hover:bg-slate-50 transition-colors duration-200 text-sm md:text-base">
                     View Profile
                     </button>

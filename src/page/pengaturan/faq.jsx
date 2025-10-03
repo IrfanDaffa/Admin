@@ -329,7 +329,7 @@ const FAQ = () => {
             </div>
 
             {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
                     <div className="bg-white rounded-2xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                         <div className="flex items-center justify-between p-6 border-b border-gray-200">
                             <h2 className="text-2xl font-bold text-gray-900">
@@ -366,7 +366,7 @@ const FAQ = () => {
                                         onChange={(e) => handleInputChange('jawaban', e.target.value)}
                                         rows={6}
                                         placeholder="Tuliskan jawaban lengkap untuk pertanyaan ini..."
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500"
                                     />
                                 </div>
 
@@ -416,7 +416,7 @@ const FAQ = () => {
             )}
 
             {showDeleteModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
                     <div className="bg-white rounded-2xl shadow-xl max-w-md w-full">
                         <div className="flex items-center justify-between p-6 border-b border-gray-200">
                             <h2 className="text-2xl font-bold text-gray-900">Konfirmasi Hapus</h2>
@@ -459,7 +459,7 @@ const FAQ = () => {
             )}
 
             {showDetailModal && selectedItem && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
                     <div className="bg-white rounded-2xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                         <div className="flex items-center justify-between p-6 border-b border-gray-200">
                             <h2 className="text-2xl font-bold text-gray-900">Detail FAQ</h2>

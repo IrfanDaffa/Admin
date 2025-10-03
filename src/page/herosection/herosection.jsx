@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Plus, Edit, Trash2, Upload, Image, Eye, Monitor, Smartphone } from 'lucide-react';
+import { Plus, Edit, Trash2, Upload, Image, Eye, Monitor, Smartphone, X } from 'lucide-react';
 
 const HeroSection = () => {
   const [activeTab, setActiveTab] = useState('background');
   const [cards, setCards] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingCard, setEditingCard] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [cardToDelete, setCardToDelete] = useState(null);
   const [formData, setFormData] = useState({
     image: '',
     page: 'Home',
@@ -14,10 +16,15 @@ const HeroSection = () => {
   const [preview, setPreview] = useState('');
 
   // Handle delete card
-  const handleDelete = (id) => {
-    if (window.confirm('Apakah Anda yakin ingin menghapus card ini?')) {
-      setCards(prev => prev.filter(card => card.id !== id));
-    }
+  const handleDeleteClick = (card) => {
+  setCardToDelete(card);
+  setShowDeleteModal(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    setCards(prev => prev.filter(card => card.id !== cardToDelete.id));
+    setShowDeleteModal(false);
+    setCardToDelete(null);
   };
 
   // Handle edit card
@@ -326,7 +333,7 @@ const HeroSection = () => {
                                   <Edit className="w-4 h-4" />
                                 </button>
                                 <button
-                                  onClick={() => handleDelete(card.id)}
+                                  onClick={() => handleDeleteClick(card)}
                                   className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                                   title="Delete"
                                 >
@@ -398,7 +405,7 @@ const HeroSection = () => {
 
       {/* Add/Edit Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-8">
               <div className="text-center mb-8">
@@ -493,6 +500,50 @@ const HeroSection = () => {
                 >
                   {editingCard ? 'Update' : 'Simpan'}
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+          <div className="bg-white rounded-2xl shadow-xl max-w-md w-full">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <h2 className="text-2xl font-bold text-gray-900">Konfirmasi Hapus</h2>
+              <button 
+                onClick={() => setShowDeleteModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+              >
+                <X className="h-6 w-6 text-gray-500" />
+              </button>
+            </div>
+            <div className="p-6">
+              <div className="text-center py-4">
+                <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+                  <Trash2 className="h-6 w-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  Hapus {activeTab === 'background' ? 'Background' : 'Slider'}?
+                </h3>
+                <p className="text-sm text-gray-500 mb-6">
+                  Apakah Anda yakin ingin menghapus {cardToDelete?.title || 'item ini'}? Tindakan ini tidak dapat dibatalkan.
+                </p>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setShowDeleteModal(false)}
+                    className="flex-1 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    onClick={handleDeleteConfirm}
+                    className="flex-1 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium"
+                  >
+                    Hapus
+                  </button>
+                </div>
               </div>
             </div>
           </div>

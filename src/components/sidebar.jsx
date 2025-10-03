@@ -4,7 +4,7 @@ import {
     Home, Briefcase, Settings, List, Plus, Eye, Package, 
     Handshake, Newspaper, MessageCircle, MapPin, Phone, 
     GraduationCap, Building2, Network, ClipboardList, 
-    Target, HelpCircle, Users, Image, Layers, ChevronRight
+    Target, HelpCircle, Users, Image, Layers, ChevronRight, Share2
 } from 'lucide-react';
 
 const Sidebar = ({ isCollapsed }) => {
@@ -58,19 +58,24 @@ const Sidebar = ({ isCollapsed }) => {
             { name: 'Galeri', path: '/galeri', icon: Image }
         ]
     },
-    { name: 'Produk', icon: Package, path: '/produk', hasSubmenu: false },
+    { name: 'Produk', icon: Package, path: '/produk', hasSubmenu: true,
+        submenu: [
+            { name: 'Kategori', path: '/produk-kategori', icon: Layers },
+            { name: 'Produk', path: '/produk', icon: List },
+        ]
+    },
     {
         name: 'Mitra', icon: Handshake, path: '/mitra', hasSubmenu: true,
         submenu: [
-            { name: 'Mitra', path: '/mitra', icon: List },
             { name: 'Kategori', path: '/mitra-kategori', icon: Layers },
+            { name: 'Mitra', path: '/mitra', icon: List },
         ]
     },
     {
         name: 'Berita', icon: Newspaper, path: '/berita', hasSubmenu: true,
         submenu: [
-            { name: 'Berita', path: '/berita', icon: List },
             { name: 'Kategori', path: '/berita-kategori', icon: Layers },
+            { name: 'Berita', path: '/berita', icon: List },
         ]
     },
     { name: 'Testimoni', icon: MessageCircle, path: '/testimoni', hasSubmenu: false },
@@ -88,7 +93,11 @@ const Sidebar = ({ isCollapsed }) => {
             { name: 'Prosedur', path: '/pengaturan-prosedur', icon: ClipboardList }
         ]
     },
-    { name: 'Kontak', icon: Phone, path: '/kontak', hasSubmenu: false },
+    { name: 'Kontak', icon: Phone, path: '/kontak', hasSubmenu: true,
+        submenu: [
+            { name: 'Media Sosial', path: '/mediasosial', icon: Share2 },
+        ]
+    },
     {
         name: 'Alumni', icon: GraduationCap, path: '/alumni', hasSubmenu: true,
         submenu: [

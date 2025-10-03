@@ -112,7 +112,7 @@ const Jabatan = () => {
                     <div className="absolute -top-16 -right-16 w-32 h-32 bg-slate-600 bg-opacity-5 rounded-full" />
                     <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-slate-600 bg-opacity-5 rounded-full" />
                 </div>
-
+                
                 <div className="mb-6">
                     <div className="relative max-w-md">
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -247,7 +247,7 @@ const Jabatan = () => {
             </div>
 
             {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
                     <div className="bg-white rounded-2xl shadow-xl max-w-md w-full">
                         <div className="flex items-center justify-between p-6 border-b border-gray-200">
                             <h2 className="text-2xl font-bold text-gray-900">
@@ -298,7 +298,7 @@ const Jabatan = () => {
             )}
 
             {showDeleteModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
                     <div className="bg-white rounded-2xl shadow-xl max-w-md w-full">
                         <div className="flex items-center justify-between p-6 border-b border-gray-200">
                             <h2 className="text-2xl font-bold text-gray-900">Konfirmasi Hapus</h2>
